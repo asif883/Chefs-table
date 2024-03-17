@@ -6,30 +6,33 @@ import Title from "./components/heading of recipe/title"
 
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import Recipe from "./components/Recipe/recipe"
 function App() {
 
   const [carts ,setCarts] =useState([]);
-  const [buttonClicked, setButtonClicked] = useState(false);
-  const handleAddToCart = recipe =>{
-    const newCarts =[...carts, recipe];
+  
+  const handleAddToCart = (R) =>{
+   const isExist = carts.find((recipe) => recipe.recipe_id == R.recipe_id);
+   console.log(isExist);
+   if(!isExist){
+    const newCarts =[...carts, R];
     setCarts(newCarts);
-
-    if (!buttonClicked) {
-      setButtonClicked(true);
-    }else{
-      toast('Already Added');
-    }
-   
-    // console.log(newCarts)
+   } 
+   else{
+      toast.warn('Already Added');
+   }
+    
+        
+    
   }
 
   return (
     <>
       <Header></Header>
       <Title></Title>
-      <div className="container mx-auto flex">
+      <div className="container mx-auto flex flex-col lg:flex-row">
         <Recipes handleAddToCart={handleAddToCart}
-                 buttonClicked={buttonClicked}    
+                     
         ></Recipes>
         
         <Carts carts={carts}></Carts>  

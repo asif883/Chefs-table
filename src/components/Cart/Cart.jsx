@@ -1,4 +1,6 @@
-const Cart =({cart}) =>{
+const Cart =({cart,handleAddPreparing}) =>{
+
+
     const {recipe_name,preparing_time,calories} = cart;
     
     return(
@@ -8,9 +10,8 @@ const Cart =({cart}) =>{
             <h3 className="text-gray-500  font-medium">{recipe_name}</h3>
             <h3 className="text-gray-500  font-medium">{preparing_time}</h3>
             <h3 className="text-gray-500   font-medium">{calories}</h3>
-            <button className="bg-green-400 p-1 rounded-2xl">Preparing</button>
+            <button onClick={handleAddPreparing} className="bg-green-400 p-1 rounded-2xl">Preparing</button>
             </div>
-
         </div>
     )
 }

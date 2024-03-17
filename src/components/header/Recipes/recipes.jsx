@@ -11,7 +11,7 @@ const Recipes = ({handleAddToCart,buttonClicked}) =>{
     return(
         <div className="lg:w-3/5 grid gap-8 grid-cols-1 lg:grid-cols-2">  
              {
-                recipes.map(recipe => <Recipe key={recipe.id}
+                recipes.map(recipe => <Recipe key={recipe.recipe_id}
                      recipe={recipe}
                      handleAddToCart={handleAddToCart}
                      buttonClicked={buttonClicked}
