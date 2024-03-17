@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import { IoTimeOutline } from "react-icons/io5";
 import { AiOutlineFire } from "react-icons/ai";
 
-const Recipe = ({recipe}) =>{
+const Recipe = ({recipe, handleAddToCart,buttonClicked}) =>{
 const {recipe_name, recipe_image,short_description,ingredients,preparing_time,calories} = recipe;
 
     return(
@@ -23,7 +23,7 @@ const {recipe_name, recipe_image,short_description,ingredients,preparing_time,ca
                   <p className='flex items-center pb-4' ><IoTimeOutline /> {preparing_time}</p>  
                   <p className='flex items-center pb-4'><AiOutlineFire /> {calories} </p>  
              </div>
-             <button className='p-4 bg-green-400 text-black font-bold rounded-3xl'>Want to Cook</button>
+             <button disabled={buttonClicked} onClick={()=>handleAddToCart(recipe)} className='p-4 bg-green-400 text-black font-bold rounded-3xl'>Want to Cook</button>
             </div>
         </main>
     )

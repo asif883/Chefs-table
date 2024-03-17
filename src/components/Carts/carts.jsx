@@ -1,8 +1,18 @@
-const Carts= ()=>{
+import Cart from "../Cart/Cart";
+
+const Carts= ({carts})=>{
     return(
-        <div className="w-1/3">
+        <div className="w-2/5 h-[550px] border-2 border-gray-200 rounded-2xl p-4 ml-6">
             <div className="text-center">
-                <h1 className="text-2xl font-semibold">Want to Cook</h1>
+                <h1 className="text-2xl font-semibold  border-b-2 border-gray-200">Want to Cook: {carts.length}</h1>
+                <div className="flex gap-16 mb-1 mt-3">
+                <p>Recipe Name:</p>
+                <p>Time</p>
+                <p>Calories</p>
+               </div>
+                {
+                    carts.map((cart,idx) => <Cart key={idx} cart={cart}></Cart>)
+                }
             </div>
 
         </div>
